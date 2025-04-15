@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Stunting AI\nPrekdiksi kondisi stunting anak anda"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_margin="5sp"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:text="Lanang"
+            android:textSize="15sp"
+            android:id="@+id/lanang"
+            android:layout_height="wrap_content"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:text="Wedok"
+            android:textSize="15sp"
+            android:id="@+id/wedok"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_margin="5sp"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:hint="Umur(Bulan)"
+            android:id="@+id/umur"
+            android:inputType="number"
+            android:layout_height="match_parent"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_margin="5sp"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:hint="Tinggi Badan(CM)"
+            android:id="@+id/tb"
+            android:inputType="numberDecimal"
+            android:layout_height="match_parent"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_margin="5sp"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:hint="Berat Badan(KG)"
+            android:id="@+id/bb"
+            android:inputType="numberDecimal"
+            android:layout_height="match_parent"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:layout_margin="5sp"
+        android:layout_width="match_parent"
+        android:text="Prediksi"
+        android:textSize="15sp"
+        android:id="@+id/predict"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:text=""
+        android:textColor="@color/black"
+        android:id="@+id/hasil"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:text="created by Anas Anargya"  
+        android:gravity="center"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
