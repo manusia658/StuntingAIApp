@@ -13,3 +13,10 @@ Stunting AI is an android application that uses artificial intelligence to help 
 - Input: Child data (age, height, weight)
 - Model: FullyConnectedNet (Keras)
 - Output:  Stunting Risk classification – **Stunting**, or**Normal**
+
+---
+
+## 📸 Screenshots
+| Home Screen |
+|-------------|
+| ![Home](screenshots/1.jpg) |
