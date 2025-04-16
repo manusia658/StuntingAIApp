@@ -12,5 +12,4 @@ Stunting AI is an android application that uses artificial intelligence to help 
 ## 🧠 AI Model
 - Input: Child data (age, height, weight)
 - Model: FullyConnectedNets
-- Output:  Stunting Risk classification – **Tall**, **Stunted**, **Normal**, or **Severely Stunted**
--            Wasting Risk classification  – **Risk of Overweight**, **Underweight**, **Severely Underweight**, or **Normal weight**
+- Output:  Stunting Risk classification – **Tall**, **Stunted**, **Normal**, or **Severely Stunted** \n Wasting Risk classification  – **Risk of Overweight**, **Underweight**, **Severely Underweight**, or **Normal weight**
