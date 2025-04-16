@@ -36,8 +36,7 @@ public class MainActivity extends AppCompatActivity {
     TextInputEditText umur, tb, bb;
     CheckBox lanang, wedok;
     TextView prediksi;
-    String[] stuntinglist = {"Tall", "Stunted", "Normal", "Severely Stunted"};
-    String[] wastinglist= {"Risk of Overweight", "Underweight", "Severely Underweight", "Normal weight"};
+    String[] stuntinglist = {"Stunting", "Normal"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,26 +91,22 @@ public class MainActivity extends AppCompatActivity {
                     float niumur = Float.parseFloat(umur.getText().toString()) / 100f;
                     float nitb = Float.parseFloat(tb.getText().toString()) / 100f;
                     float nibb = Float.parseFloat(bb.getText().toString()) / 100f;
-                    float bibmi = nibb / (nitb * nitb);
-                    System.out.println(niumur + " " + nitb + " " + nibb + " " + bibmi);
-                    float[][] input = new float[1][5];
-                    input[0] = new float[]{0.0f, niumur, nitb, nibb, bibmi};
-                    float[][] outputA = new float[1][4];
-                    float[][] outputB = new float[1][4];
+                    float kelamin = (lanang.isChecked()) ? 0.0f : 1.0f;
 
-                    Map<Integer, Object> outputs = new HashMap<>();
-                    outputs.put(0, outputA);
-                    outputs.put(1, outputB);
+                    System.out.println(niumur + " " + nitb + " " + nibb + " " + kelamin);
+
+                    float[][] input = new float[1][4];
+                    input[0] = new float[]{niumur, kelamin, nitb, nibb};
+                    float[][] output = new float[1][2];
 
                     try {
                         Interpreter tfmodel = new Interpreter(loadmodelfile(getAssets(), "model.tflite"));
-                        tfmodel.runForMultipleInputsOutputs(new Object[]{input}, outputs);
+                        tfmodel.run(input, output);
 
                         String stun = "";
-                        String wast = "";
 
-                        float[] rawA = outputA[0];
-                        float[] rawB = outputB[0];
+                        float[] rawA = output[0];
+
                         float beforenumber = Float.NEGATIVE_INFINITY;
                         int akurasi = 0;
                         for (int i = 0; i < rawA.length; i++) {
@@ -121,14 +116,7 @@ public class MainActivity extends AppCompatActivity {
                                 stun = stuntinglist[i];
                             }
                         }
-                        beforenumber = Float.NEGATIVE_INFINITY;
-                        for (int i = 0; i < rawB.length; i++) {
-                            if (rawB[i] > beforenumber) {
-                                beforenumber = rawB[i];
-                                wast = wastinglist[i];
-                            }
-                        }
-                        prediksi.setText("Stunting: " + stun + "\n" + "Berat Badan: " + wast + "\n" + "Akurasi: " + akurasi + "%");
+                        prediksi.setText("Stunting: " + stun + "\n" + "Akurasi: " + akurasi + "%");
 
                     } catch (IOException e) {
                         System.out.println("error: " + e.getMessage());

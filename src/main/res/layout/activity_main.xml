@@ -26,13 +26,13 @@
 
         <CheckBox
             android:layout_width="wrap_content"
-            android:text="Lanang"
+            android:text="Laki Laki"
             android:textSize="15sp"
             android:id="@+id/lanang"
             android:layout_height="wrap_content"/>
         <CheckBox
             android:layout_width="wrap_content"
-            android:text="Wedok"
+            android:text="Perempuan"
             android:textSize="15sp"
             android:id="@+id/wedok"
             android:layout_height="wrap_content"/>
